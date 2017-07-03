@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css.map"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="container"></div>
+        </div>
+        <!--<div class="col-md-4">-->
+            <!--<form id="s" class="list-group">-->
+                <!--<div class="form-group">-->
+                    <!--<input class="form-control" type="search" id="q"/>-->
+                <!--</div>-->
+                <!--<button class="btn btn-success" type="submit">Search</button>-->
+            <!--</form>-->
+        <!--</div>-->
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-md-12">&nbsp;</div>
+            </div>
+            <div class="well pu">
+            <form id="s">
+            <div class="input-group">
+                <input type="text" class="form-control" id="q" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Go!</button>
+                </span>
+            </div><!-- /input-group -->
+            </form>
+            </div>
+        </div><!-- /.col-lg-6 -->
+    </div>
+
+    <div class="row">
+
+    </div>
+
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/jstree.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    // HTML дерево
+    //    $(function() {
+    //        $('#container').jstree();
+    //    });
+
+
+    $(function () {
+        $('#container').jstree({
+            'core': {
+                "check_callback": true, // enable all modifications
+                'data': {
+                    'url': 'data.json',
+                    'dataType': "json",
+//                    "data" : function (node) {
+//                        return { "id" : node.id };
+//                    },
+//                    "multiple" : true,
+//                    "themes" : {
+//                        "dots" : true // no connecting dots between dots
+//                    },
+
+                }
+//                'data': [
+//                    {
+//                        "text": "Root node x", "children": [
+//                        {"text": "Child node 1x"},
+//                        {"text": "Child node 2x"}
+//                    ]
+//                    }
+//                ]
+            },
+            "types": {
+                "default": {
+                    "icon": "glyphicon glyphicon-star-empty"
+                },
+                "demo": {
+                    "icon": "glyphicon glyphicon-user"
+                },
+                "findep": {
+                    "icon": "glyphicon glyphicon-ruble"
+                },
+                "ahd": {
+                    "icon": "glyphicon glyphicon-text-color"
+                }
+            },
+            "state": {"key": "state_demo"},
+            "plugins": ["dnd", "contextmenu", "checkbox", "search", "state", "types"]
+        });
+//        $('button').on("click", function () {
+//            var instance = $('#container').jstree(true);
+//            instance.deselect_all();
+//            instance.select_node('1');
+//        });
+        $("#s").submit(function (e) {
+            e.preventDefault();
+            $("#container").jstree(true).search($("#q").val());
+        });
+    });
+</script>
+
+
+</body>
+</html>

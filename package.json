@@ -16,7 +16,5 @@
     "url": "https://github.com/SETTER2000/tree/issues"
   },
   "homepage": "https://github.com/SETTER2000/tree#readme",
-  "dependencies": {
-    "symbol-tree": "^3.2.2"
-  }
+  "dependencies": {}
 }
