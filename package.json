@@ -2,7 +2,7 @@
   "name": "tree",
   "version": "0.1.0",
   "description": "",
-  "main": "app.js",
+  "main": "tree.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SETTER2000/tree/issues"
   },
-  "homepage": "https://github.com/SETTER2000/tree#readme"
+  "homepage": "https://github.com/SETTER2000/tree#readme",
+  "dependencies": {
+    "symbol-tree": "^3.2.2"
+  }
 }
